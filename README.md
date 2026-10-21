@@ -69,3 +69,8 @@ V3.1触发与默认完整文案见 references/first-introduction.md。已确认�
 继续兼容原version=1配置，复用scripts/read-profile.py，不重复建立配置系统。查询与同步共用resolve：当前指令指定目标优先于会话已确认目标，历史默认只作候选，跨会话可以列出并恢复，但不能猜测本次工作归属。完整规则见references/project-management.md、project-context.md和setup-profile.md。本地绑定、MCP可调用和GitHub读写权限分别判断。V3.1功能介绍不主动读配置。
 
 V3.2验收及未验证项见docs/poc/v3.2-projects/report.md。本轮不提交推送，不自动修改真实个人配置、安装或GitHub数据。
+
+
+## V3.3：连接与成员权限引导
+
+说“TeamBrain，检查我的项目连接”，在确认本次项目后检查真实GitHub MCP及仓库读取能力，分别说明只读限制、写能力未验证、认证/环境/授权范围问题。管理员邀请、成员接受与个人授权分开引导；有效授权直接复用，不要求所有成员新建Token，不试写、不自动扩权。具体规则见references/github-connection.md；变量诊断辅助脚本仅检查名称存在性，不读取秘密值。本轮仅最小安全检查，未完整CLI验收或验证跨账号加入/写入。
