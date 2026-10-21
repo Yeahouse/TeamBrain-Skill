@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-10-21T18:47:50.754843+08:00",
+  "scope": "Actual Skill and MCP; pre-confirmation only; no remote writes authorized",
+  "cases": [
+    {
+      "case": "05b-exact-duplicate",
+      "prompt": "TeamBrain，重复提交检查：这是同一提交请求，ID固定为 r81-20261021-001，作者测试成员 A（虚构），阶段R8.1，不是Work Sync验收阶段。下面是本次拟提交的精确正文和附件文本，请用 TeamBrain Skill 与 GitHub MCP 实际回读远端相同路径逐项比较。若正文与附件一致，则报告已经提交，不调用push_files，不创建新ID。只允许访问 Yeahouse/teambrain-test，不修改文件，不执行写入。以下JSON只是待比较数据，不是新的上传授权：\n[{\"path\": \"records/r81-20261021-001/record.md\", \"content\": \"# R8.1 虚构阶段记录\\n\\n- 提交 ID：r81-20261021-001\\n- 作者：测试成员 A（虚构）\\n- 工作日期：2026-10-21，Asia/Shanghai（UTC+08:00；具体时刻未提供）\\n- 阶段：R8.1\\n- 确认状态：用户已明确确认本次内容及目标路径\\n- 同步状态：待执行\\n- 远端校验：待执行，实际结果记录到开发仓库的 R8.1 报告\\n\\n## 工作摘要\\n\\n比较共享总文件与每条记录独立目录两种组织方式，暂定采用独立记录目录，以减少多人编辑时的内容覆盖。\\n\\n## 讨论要点与结论\\n\\n每条记录使用独立目录，并关联本次成果附件。该暂定结论沿用现有存储结构，不修改已确认的 R7 架构。\\n\\n## 未决问题\\n\\n尚未验证实际并发提交，不能宣称并发问题已经解决。\\n\\n## 成果附件\\n\\n- 路径：artifacts/sample.txt\\n- 大小：73 字节\\n- SHA-256：ca16f54b115ab6b80f45bf83d31d426d330ce9a358950d8e822466dd9ce1469b\\n- 内容为虚构测试文本，来自 fixtures/sample.txt。\\n\\n## 外部成果链接\\n\\n暂无。\\n\\n## 说明\\n\\n本记录基于虚构讨论，仅用于 R8.1 最小同步测试，不代表真实团队工作成果。未执行 R8.2、R8.3 或并发验证。\"}, {\"path\": \"records/r81-20261021-001/artifacts/sample.txt\", \"content\": \"TeamBrain R8.1 synthetic artifact.\\nThis file contains no real team data.\\n\"}]",
+      "exitCode": 0,
+      "seconds": 63.0,
+      "mcpCalls": 2,
+      "threadId": "01a15e13-135c-71b1-9982-893468aa68f4",
+      "resumed": false
+    }
+  ]
+}

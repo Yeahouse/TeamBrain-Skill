@@ -1,0 +1,25 @@
+Reading additional input from stdin...
+2026-10-21T10:39:18.883577Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:18.886855Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:18.900887Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:18.901344Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:18.903090Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:18.935578Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:39:18.935603Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:39:18.945511Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-10-21T10:39:19.055776Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:19.061665Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:20.936601Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:39:20.936636Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:39:21.534629Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:22.962764Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:29.158933Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:34.272601Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:39.194087Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:44.511981Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:46.847032Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:39:54.427932Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:40:03.927603Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:40:18.820007Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:40:22.998888Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:41:03.196733Z  WARN codex_analytics::client: timed out or failed while flushing analytics events

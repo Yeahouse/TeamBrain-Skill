@@ -1,0 +1,69 @@
+{
+  "startedAt": "2026-10-21T18:39:18.761748+08:00",
+  "scope": "Actual Skill and MCP; pre-confirmation only; no remote writes authorized",
+  "cases": [
+    {
+      "case": "01-normal",
+      "prompt": "TeamBrain，帮我同步一下刚刚完成的工作。我们刚完成记录组织方式讨论，比较共享总文件与每次独立记录，最终明确决定每次使用独立记录，减少覆盖。尚未验证并发。请整理讨论、正式结论及该文本成果，先给我完整预览。\n\n这是 Work Sync 开发的虚构验收数据，均为当前用户消息可见内容。唯一目标为 Yeahouse/teambrain-test main。作者测试成员 A（虚构），阶段 Work Sync 验收，工作日期2026-10-21（具体时刻未提供）。本轮没有给出上传确认，禁止远端写入、不调用 push_files 或 Git 写操作，不读其他独立会话。必须实际调用 TeamBrain Skill 与 GitHub MCP 读取项目/records 后按流程生成预览或停止，不可仅模拟工具结果。可以使用当前 Skill 的草稿辅助脚本，将本地包保存到已忽略的 tmp/work-sync-acceptance/ 下；不改其他文件，不修改测试仓库。当前可访问的文本成果是 [DEVELOPMENT_WORKSPACE]\\teambrain-skill\\tmp\\work-sync-acceptance\\result.txt。",
+      "exitCode": 0,
+      "seconds": 104.8,
+      "mcpCalls": 4,
+      "threadId": "01a15e0b-4377-7373-b576-b616ffe357a1",
+      "resumed": false
+    },
+    {
+      "case": "02-revised",
+      "prompt": "TeamBrain，帮我同步一下刚刚完成的工作。方案讨论先提议共享总文件，随后否定，因为多人会互相覆盖；之后曾想用数据库，最终也暂不采用。最后明确决定沿用独立 Markdown 记录。请正确区分已否定方案、暂不采用方案与最终结论，给预览，不上传。\n\n这是 Work Sync 开发的虚构验收数据，均为当前用户消息可见内容。唯一目标为 Yeahouse/teambrain-test main。作者测试成员 A（虚构），阶段 Work Sync 验收，工作日期2026-10-21（具体时刻未提供）。本轮没有给出上传确认，禁止远端写入、不调用 push_files 或 Git 写操作，不读其他独立会话。必须实际调用 TeamBrain Skill 与 GitHub MCP 读取项目/records 后按流程生成预览或停止，不可仅模拟工具结果。可以使用当前 Skill 的草稿辅助脚本，将本地包保存到已忽略的 tmp/work-sync-acceptance/ 下；不改其他文件，不修改测试仓库。当前可访问的文本成果是 [DEVELOPMENT_WORKSPACE]\\teambrain-skill\\tmp\\work-sync-acceptance\\result.txt。",
+      "exitCode": 0,
+      "seconds": 63.7,
+      "mcpCalls": 4,
+      "threadId": "01a15e0c-dce2-73f0-98d4-3efe5720fe6b",
+      "resumed": false
+    },
+    {
+      "case": "03-exploration",
+      "prompt": "TeamBrain，帮我同步一下刚刚完成的工作。我们只是比较了标签检索与全文检索的可能性，尚无实验，也没有决定采用任何方案。请只整理探索过程与待验证问题，不把想法写成正式结论；暂不把 result.txt 作为本阶段成果。先给探索记录预览，不上传。\n\n这是 Work Sync 开发的虚构验收数据，均为当前用户消息可见内容。唯一目标为 Yeahouse/teambrain-test main。作者测试成员 A（虚构），阶段 Work Sync 验收，工作日期2026-10-21（具体时刻未提供）。本轮没有给出上传确认，禁止远端写入、不调用 push_files 或 Git 写操作，不读其他独立会话。必须实际调用 TeamBrain Skill 与 GitHub MCP 读取项目/records 后按流程生成预览或停止，不可仅模拟工具结果。可以使用当前 Skill 的草稿辅助脚本，将本地包保存到已忽略的 tmp/work-sync-acceptance/ 下；不改其他文件，不修改测试仓库。当前可访问的文本成果是 [DEVELOPMENT_WORKSPACE]\\teambrain-skill\\tmp\\work-sync-acceptance\\result.txt。",
+      "exitCode": 0,
+      "seconds": 51.7,
+      "mcpCalls": 4,
+      "threadId": "01a15e0d-d5bf-7e21-bf54-4c1962069033",
+      "resumed": false
+    },
+    {
+      "case": "04-edit-cancel",
+      "prompt": "TeamBrain，帮我同步一下刚刚完成的工作。我们决定每个阶段生成独立记录，仍需验证检索体验。请先给正式结论记录预览，成果候选有 result.txt 和 [DEVELOPMENT_WORKSPACE]\\teambrain-skill\\tmp\\work-sync-acceptance\\notes.txt；先不上传。\n\n这是 Work Sync 开发的虚构验收数据，均为当前用户消息可见内容。唯一目标为 Yeahouse/teambrain-test main。作者测试成员 A（虚构），阶段 Work Sync 验收，工作日期2026-10-21（具体时刻未提供）。本轮没有给出上传确认，禁止远端写入、不调用 push_files 或 Git 写操作，不读其他独立会话。必须实际调用 TeamBrain Skill 与 GitHub MCP 读取项目/records 后按流程生成预览或停止，不可仅模拟工具结果。可以使用当前 Skill 的草稿辅助脚本，将本地包保存到已忽略的 tmp/work-sync-acceptance/ 下；不改其他文件，不修改测试仓库。当前可访问的文本成果是 [DEVELOPMENT_WORKSPACE]\\teambrain-skill\\tmp\\work-sync-acceptance\\result.txt。",
+      "exitCode": 0,
+      "seconds": 83.0,
+      "mcpCalls": 4,
+      "threadId": "01a15e0e-9fb2-7443-900d-1bd8bfc09888",
+      "resumed": false
+    },
+    {
+      "case": "04b-edit",
+      "prompt": "先修改这份预览：排除 notes.txt，只保留 result.txt；未决问题改为“尚需验证按阶段检索是否方便”。保持原请求及记录 ID，刷新预览，仍不要上传。",
+      "exitCode": 0,
+      "seconds": 42.1,
+      "mcpCalls": 0,
+      "threadId": "01a15e0e-9fb2-7443-900d-1bd8bfc09888",
+      "resumed": true
+    },
+    {
+      "case": "04c-cancel",
+      "prompt": "取消这次同步。不要调用写入工具，也不要之后自动恢复。若已保存本地草稿包，将其标为 cancelled。请通过 MCP 只读核对 records 中没有新增本次ID，并说明取消结果。",
+      "exitCode": 0,
+      "seconds": 43.6,
+      "mcpCalls": 1,
+      "threadId": "01a15e0e-9fb2-7443-900d-1bd8bfc09888",
+      "resumed": true
+    },
+    {
+      "case": "05-duplicate",
+      "prompt": "TeamBrain，重复同步请求：记录 ID 固定为 r81-20261021-001，其内容及 sample.txt 与远端已提交版本相同。不要创建新 ID、不要再次上传。先通过 MCP 读取该记录与附件，识别已存在并核对来源。如果先前写入响应不明确，也应先检查远端再决定，不得盲目重试。本场景没有新文件需要同步。\n\n这是 Work Sync 开发的虚构验收数据，均为当前用户消息可见内容。唯一目标为 Yeahouse/teambrain-test main。作者测试成员 A（虚构），阶段 Work Sync 验收，工作日期2026-10-21（具体时刻未提供）。本轮没有给出上传确认，禁止远端写入、不调用 push_files 或 Git 写操作，不读其他独立会话。必须实际调用 TeamBrain Skill 与 GitHub MCP 读取项目/records 后按流程生成预览或停止，不可仅模拟工具结果。可以使用当前 Skill 的草稿辅助脚本，将本地包保存到已忽略的 tmp/work-sync-acceptance/ 下；不改其他文件，不修改测试仓库。当前可访问的文本成果是 [DEVELOPMENT_WORKSPACE]\\teambrain-skill\\tmp\\work-sync-acceptance\\result.txt。",
+      "exitCode": 0,
+      "seconds": 59.1,
+      "mcpCalls": 6,
+      "threadId": "01a15e11-32a2-73c3-996b-cff8d007f017",
+      "resumed": false
+    }
+  ]
+}

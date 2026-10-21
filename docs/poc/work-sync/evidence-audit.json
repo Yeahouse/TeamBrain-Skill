@@ -1,0 +1,79 @@
+{
+  "cases": [
+    {
+      "case": "01-normal",
+      "mcpCalls": 4,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "01-normal-answer.md",
+      "events": "01-normal-events.jsonl"
+    },
+    {
+      "case": "02-revised",
+      "mcpCalls": 4,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "02-revised-answer.md",
+      "events": "02-revised-events.jsonl"
+    },
+    {
+      "case": "03-exploration",
+      "mcpCalls": 4,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "03-exploration-answer.md",
+      "events": "03-exploration-events.jsonl"
+    },
+    {
+      "case": "04-edit-cancel",
+      "mcpCalls": 4,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "04-edit-cancel-answer.md",
+      "events": "04-edit-cancel-events.jsonl"
+    },
+    {
+      "case": "04b-edit",
+      "mcpCalls": 0,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "04b-edit-answer.md",
+      "events": "04b-edit-events.jsonl"
+    },
+    {
+      "case": "04c-cancel",
+      "mcpCalls": 1,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "04c-cancel-answer.md",
+      "events": "04c-cancel-events.jsonl"
+    },
+    {
+      "case": "05-duplicate",
+      "mcpCalls": 6,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "05-duplicate-answer.md",
+      "events": "05-duplicate-events.jsonl"
+    },
+    {
+      "case": "05b-exact-duplicate",
+      "mcpCalls": 2,
+      "skillReadOrSameConversation": true,
+      "onlyAuthorizedReadTools": true,
+      "noWriteCalls": true,
+      "answer": "05b-exact-duplicate-answer.md",
+      "events": "05b-exact-duplicate-events.jsonl"
+    }
+  ],
+  "cancelledPacketVerified": true,
+  "remoteWriteCalls": 0,
+  "tokenValueAndTemporaryCredentialCheck": "passed"
+}

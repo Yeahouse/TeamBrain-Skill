@@ -34,3 +34,13 @@ Skill 通过 MCP 读取 project.md、records/、artifacts/、links/ 及记录关
 原 github 只读连接曾认证失败；当前可选用已授权测试连接的 get_file_contents。查询不调用写工具。正常桌面/CLI 进程须能继承 MCP 令牌环境；令牌不存放于 Skill。其他团队使用前应指定自己的共享仓库，不能沿用本测试绑定。
 
 本轮验收及原始证据保存在 docs/poc/project-progress-query/；验收状态以其报告为准。开发记录提交、推送需用户确认。
+
+## Work Sync（智能阶段工作同步）
+
+在阶段工作结束后直接说：“TeamBrain，帮我同步一下刚刚完成的工作。”
+
+AI 仅提炼当前可见对话，整理工作、方案取舍、正式结论或探索状态，识别文本成果和外部链接，先展示记录及目标路径。可修改、排除或取消；明确确认后才通过 MCP 提交并回读。不上传整段聊天、不主动读取其他历史会话。PDF/DOCX/PPTX 当前只识别候选，不自动上传。
+
+流程：references/work-sync.md；本地草稿辅助：references/work-sync-draft.md、scripts/prepare-work-sync.py。辅助脚本只产生待确认包，不连接 GitHub。当前唯一测试目标为 Yeahouse/teambrain-test，沿用既有 R7 结构。
+
+重复请求保留ID并查远端，内容一致则不重复写；冲突或结果未知先核对，不自动覆盖或盲目重试。验收状态见 docs/poc/work-sync/，预览通过不能等同完整同步通过。

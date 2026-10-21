@@ -1,0 +1,51 @@
+[
+  {
+    "label": "正常结论",
+    "submission_id": "ws-fde7b652b4cb49789bcab59f0ccd1881",
+    "localPacketRelativeToRepo": "tmp/work-sync-acceptance/ws-fde7b652b4cb49789bcab59f0ccd1881-packet.json",
+    "request_fingerprint": "6356f135e0191a808b9c87bdb15895d3d101ea8b106722c2f066ad270cf95622",
+    "files": [
+      {
+        "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881/record.md",
+        "bytes": 1139,
+        "sha256": "b47f871006b568ef378b9d1f4505ce35bae47a288e0cce3dffab601d6ee7a419"
+      },
+      {
+        "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881/artifacts/result.txt",
+        "bytes": 79,
+        "sha256": "3a76f798bd7210c89f063ba3378e76987da831bbb49cbd44180279a27cac0048"
+      }
+    ]
+  },
+  {
+    "label": "方案修订",
+    "submission_id": "ws-729b22e4048f4b4b8580ebf7f9f25e61",
+    "localPacketRelativeToRepo": "tmp/work-sync-acceptance/final-02-revised-packet.json",
+    "request_fingerprint": "00b01403663b7170dae4bcd6907088d019e46ce44dd3db59541a1cea4be4fb5d",
+    "files": [
+      {
+        "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61/record.md",
+        "bytes": 1043,
+        "sha256": "af4847d1057ad9bc7973a94f9e72afe5bd56c49f7fc756301a542bfffb33b021"
+      },
+      {
+        "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61/artifacts/result.txt",
+        "bytes": 79,
+        "sha256": "3a76f798bd7210c89f063ba3378e76987da831bbb49cbd44180279a27cac0048"
+      }
+    ]
+  },
+  {
+    "label": "探索记录",
+    "submission_id": "work-sync-20261021-a-7f942c",
+    "localPacketRelativeToRepo": "tmp/work-sync-acceptance/final-03-exploration-packet.json",
+    "request_fingerprint": "75a7bfbeca7e98e51ff84c781390d03a96949b7aeb1a5dfdfa71da26511b6ecb",
+    "files": [
+      {
+        "path": "records/work-sync-20261021-a-7f942c/record.md",
+        "bytes": 907,
+        "sha256": "05234f05cc32c5b9c06f1f653cc9e8df3b42576bf42106446b1368dade44418b"
+      }
+    ]
+  }
+]

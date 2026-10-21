@@ -1,0 +1,18 @@
+2026-10-21T10:45:04.224939Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:04.227942Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:04.232874Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:04.235865Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:04.245137Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:04.269372Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:45:04.269406Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:45:04.275605Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-10-21T10:45:04.381840Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:04.529580Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:06.951398Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:07.148366Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:45:07.148387Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T10:45:09.109621Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:12.968544Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:20.761590Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:25.376168Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T10:45:29.159819Z  WARN codex_features: unknown feature key in config: rmcp_client
