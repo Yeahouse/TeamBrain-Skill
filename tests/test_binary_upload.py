@@ -5,6 +5,8 @@ import os
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+import json
 
 ROOT = Path(__file__).parents[1]
 def load(name, path):
@@ -96,6 +98,91 @@ class BinaryUploadTests(unittest.TestCase):
         altered = dict(files); altered[next(iter(altered))] += b'changed'
         with self.assertRaises(ValueError): upload.stage(reader, received, altered, packet['submission_id'])
         self.assertTrue(any(x['status'] == 'different' for x in upload.remote_files(reader, received, altered)))
+
+    def observation(self, files, omitted=(), unreadable=(), extras=None):
+        class Observation:
+            def __init__(inner):
+                inner.calls = []
+                inner.data = {str(i): raw for i, raw in enumerate(files.values())}
+                inner.entries = {p: ('100644', 'blob', str(i)) for i, p in enumerate(files) if p not in omitted}
+                inner.entries.update(extras or {})
+            def init(inner): pass
+            def tree(inner, commit): return inner.entries
+            def run(inner, *args, data=None):
+                inner.calls.append(args)
+                if args[0] in ('fetch', 'remote'): return b''
+                if args[0] == 'rev-parse': return b'a' * 40
+                if args[0] == 'cat-file':
+                    if args[2] in unreadable: raise upload.GitFailure('controlled blob failure')
+                    return inner.data[args[2]]
+                raise AssertionError('Unexpected write or identity operation')
+        return Observation()
+
+    def test_per_file_partial_results_do_not_erase_success(self):
+        files = {'records/id/record.md': b'record', 'records/id/artifacts/a.txt': b'text', 'records/id/artifacts/b.docx': b'binary'}
+        fake = self.observation(files, omitted=['records/id/artifacts/a.txt'], unreadable=['2'])
+        manifest = [{'path': p, 'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest(), 'kind': kind}
+                    for (p, raw), kind in zip(files.items(), ('record', 'text', 'binary'))]
+        result = upload.inspect_files(fake, 'a' * 40, manifest)
+        self.assertEqual([x['status'] for x in result], ['verified', 'missing', 'unknown'])
+        self.assertIn('remote_sha256', result[0])
+        self.assertEqual([x['kind'] for x in result], ['record', 'text', 'binary'])
+
+    def test_duplicate_and_partial_stop_before_identity_or_push(self):
+        packet = self.packet(); value = upload.plan(packet, 'example/fixture', 'main', 'Fixture Member')
+        files = upload.payload(packet); fake = self.observation(files)
+        with patch.object(upload, 'Git', side_effect=AssertionError('Receipt required before network')):
+            self.assertEqual(upload.execute(value, value['confirmation_sha256'])['status'], 'receipt_path_required')
+        receipt = self.root / 'attempt.receipt.json'
+        with patch.object(upload, 'Git', return_value=fake):
+            result = upload.execute(value, value['confirmation_sha256'], receipt)
+        self.assertEqual(result['status'], 'already_present_verified')
+        self.assertFalse(result['remote_write_attempted'])
+        with patch.object(upload, 'Git', side_effect=AssertionError('Must stop before any connection')):
+            self.assertEqual(upload.execute(value, value['confirmation_sha256'], receipt)['status'], 'prior_attempt_inspect_remote_before_retry')
+        fake = self.observation(files, omitted=[packet['binary_files'][0]['path']])
+        with patch.object(upload, 'Git', return_value=fake):
+            result = upload.execute(value, value['confirmation_sha256'], self.root / 'partial.receipt.json')
+        self.assertEqual(result['status'], 'conflict_or_partial_stop')
+        self.assertEqual([x['status'] for x in result['files']], ['verified', 'missing'])
+        self.assertFalse(any(x[0] in ('push', 'config') for x in fake.calls))
+
+    def test_readonly_recovery_without_local_source_and_extra_collision(self):
+        packet = self.packet(); value = upload.plan(packet, 'example/fixture', 'main', 'Fixture Member')
+        files = upload.payload(packet); self.source.unlink()
+        fake = self.observation(files)
+        with patch.object(upload, 'Git', return_value=fake):
+            result = upload.inspect_remote(value)
+        self.assertEqual(result['status'], 'verified')
+        self.assertFalse(result['remote_write_attempted'])
+        self.assertEqual(result['member'], 'Fixture Member')
+        extra = 'records/' + packet['submission_id'].upper() + '/artifacts/other.txt'
+        fake.entries[extra] = ('100644', 'blob', 'unused')
+        result = upload.check_remote(fake, 'a' * 40, value)
+        self.assertEqual(result['status'], 'conflict_or_partial_stop')
+        self.assertIn(extra, result['extra_record_paths'])
+        fake = self.observation({}, extras={'records': ('120000', 'blob', 'unused')})
+        result = upload.check_remote(fake, 'a' * 40, value)
+        self.assertEqual(result['status'], 'conflict_or_partial_stop')
+        self.assertEqual(result['blocking_parent_paths'], ['records'])
+
+    def test_interruption_keeps_write_intent_and_blocks_blind_replay(self):
+        packet = self.packet(); value = upload.plan(packet, 'example/fixture', 'main', 'Fixture Member')
+        fake = self.observation({}); original = fake.run
+        def run(*args, data=None):
+            if args[0] == 'config': return b'fixture identity'
+            if args[0] == 'ls-remote': return b'a' * 40 + b' refs/heads/main'
+            if args[0] == 'push': raise KeyboardInterrupt('controlled interruption')
+            return original(*args, data=data)
+        fake.run = run; receipt = self.root / 'interrupted.receipt.json'
+        with patch.object(upload, 'Git', return_value=fake), patch.object(upload, 'stage', return_value='b' * 40):
+            with self.assertRaises(KeyboardInterrupt): upload.execute(value, value['confirmation_sha256'], receipt)
+        saved = json.loads(receipt.read_text(encoding='utf-8'))
+        self.assertEqual(saved['status'], 'write_intent_outcome_unknown')
+        self.assertEqual(saved['submission_id'], packet['submission_id'])
+        self.assertEqual(saved['confirmation_sha256'], value['confirmation_sha256'])
+        self.assertEqual(len(saved['files']), 2)
+        self.assertEqual(upload.execute(value, value['confirmation_sha256'], receipt)['status'], 'prior_attempt_inspect_remote_before_retry')
 
 
 if __name__ == '__main__':

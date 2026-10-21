@@ -55,3 +55,20 @@ python scripts/upload-work-sync.py upload --plan <plan.json> --confirm <对应co
 本地临时Git字节往返、重复/冲突及批准/变更限制基础检查通过。2026-10-22获用户明确批准后，通过本脚本向Yeahouse/teambrain-lulubox-test/main新增一条记录及sample.docx，提交b3e66197cb7b75300d149c92ae1c36ca6cf49529；另一全新Git仓库从GitHub回取记录和DOCX原字节，均一致。DOCX为36880字节，SHA-256为41268b8b6e41e5dac1c52fcf2d101684a693db9f23a8058aaf99d393fab8f51d。仅此DOCX有真实远端验证，未做其他格式、跨账号或多人并发验收；DOCX结构检查通过，视觉渲染因缺LibreOffice未执行。后续每次上传仍须具体预览确认。
 
 依据：[Git对象原字节写入](https://git-scm.com/docs/git-hash-object)、[普通推送规则](https://git-scm.com/docs/git-push)、[GitHub文件大小限制](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)。
+
+
+## V3.6 恢复检查与本地回执
+
+CLI upload默认在plan.json旁保存plan.json.receipt.json，库函数execute也必须显式提供本地receipt_path（未提供则在联网前停止），也可用--receipt指定新的本地回执路径。仅放在忽略的tmp/work-sync内，不纳入共享仓库。写前回执记录同一目标/署名/ID、确认摘要、文件清单和candidate_commit，推送发生前即记“结果未知”；进程中断仍可定位该次请求。已有回执一律阻止同路径直接再次upload，不删除旧回执或自动重试。草稿和plan保持不变，回执不复制秘密或本地成果源路径。
+
+恢复先重新确认本会话项目与原plan一致，再运行只读命令：
+
+```text
+python scripts/upload-work-sync.py inspect --plan <原plan.json>
+```
+
+inspect仅fetch，不提交、不push，按plan中的已批准目标路径、大小与哈希检查同ID文件，源文件本地暂不可用时仍能检查远端；这不授权再次上传。全匹配无需写入；部分/内容冲突/同ID额外路径先展示状态，不自动补齐；远端不可读保持未知；全部缺失时向用户说明前次状态，获明确重试批准后才选择新回执路径使用同一草稿，不覆盖旧回执。当前没有自动修复或自动重试机制。检查结果是快照，重试前仍检查最新状态。
+
+回读分文件保留remote_bytes/remote_sha256与状态，一项blob读取失败不抹掉其他已核验项。另一成员追加无关提交导致HEAD前进时，检查最新快照内本记录的真实内容；完整一致可报告在该快照核验成功，同时区分candidate_commit和核验commit，不误称本次提交覆盖了后来的版本。错字节/类型或同ID额外文件时停止；原提交已存在但后来被改时也不称成功。
+
+普通非强制push继续作为基础版本冲突保护；未增加锁服务、队列或分支删除/重建场景的原子条件保护。原V3.5真实DOCX结果不代表本轮恢复或并发场景已远端验证。
