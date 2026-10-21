@@ -79,3 +79,8 @@ V3.2验收及未验证项见docs/poc/v3.2-projects/report.md。本轮不提交�
 ## V3.4：项目仓库初始化
 
 确认目标后只读区分空仓库、缺分支、缺项目说明与认证/权限错误。空仓库先展示新增文件/分支/工具副作用，确认后才初始化并回读；既有仓库只补获批缺项，不覆盖、不迁移。沿用project.md、records/、artifacts/、links/及记录内附件，空目录占位不作为成果。初始化保留同一工作草稿和已有批准范围；缺records/不必初始化，可随首条获批记录自然创建。详见references/repository-initialization.md。本轮仅本地规则与基础检查，首次提交及Remote具体副作用未实测，未修改团队远端或个人配置。
+
+
+## V3.5：真实成果文件
+
+现有草稿支持DOCX/PDF/PPTX及PNG/JPG/JPEG/GIF/WEBP的原始字节清单，文本-only继续MCP；含二进制时经完整预览确认后，通过scripts/upload-work-sync.py在独立临时Git仓库整包单提交，使用已有Git认证，另建临时仓库远端回取字节并核验。详情见references/binary-upload.md。单文件25 MiB、总包100 MiB，不含LFS、旧DOC/PPT或其他格式；不解析/转换文档。成果只从当前已确认工作范围识别，不扫描无关私人目录。经用户批准的一次真实DOCX上传已通过：测试仓库提交b3e66197cb7b75300d149c92ae1c36ca6cf49529，原始DOCX为36880字节，GitHub回取后SHA-256为41268b8b6e41e5dac1c52fcf2d101684a693db9f23a8058aaf99d393fab8f51d，与本地一致；记录关联同时核验通过。其他格式仅本地字节测试，未逐格式远端验收。V3.2隔离、V3.4初始化和原草稿ID保留。

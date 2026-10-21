@@ -1,4 +1,4 @@
-"""Prepare a local, unconfirmed text synchronization packet; no network access."""
+"""Prepare a local, unconfirmed synchronization packet; no network access."""
 import argparse
 import datetime
 import hashlib
@@ -59,21 +59,32 @@ def prepare(draft, previous=None):
         raise ValueError('A request must keep its existing ID')
     created_at = (previous or {}).get('created_at', now)
     base = f'records/{submission_id}'
-    files, artifacts, names = [], [], set()
+    files, artifacts, names, binary_files = [], [], set(), []
     for item in draft.get('artifacts', []):
         source = Path(item['path'])
         name = item.get('name') or source.name
-        if name in ('.', '..') or '/' in name or '\\' in name or ':' in name or name.casefold() in names:
+        if not re.fullmatch(r'[\w .()-]+', name) or name in ('.', '..') or name.rstrip(' .') != name or name.casefold() in names:
             raise ValueError('Unsafe or duplicate attachment name')
         names.add(name.casefold())
-        if source.suffix.lower() not in ('.md', '.markdown', '.txt') or Path(name).suffix.lower() not in ('.md', '.markdown', '.txt'):
-            raise ValueError('Unsupported artifact type; list as not uploaded instead')
+        text_types = ('.md', '.markdown', '.txt')
+        binary_types = ('.docx', '.pdf', '.pptx', '.png', '.jpg', '.jpeg', '.gif', '.webp')
+        suffix = source.suffix.lower()
+        if suffix not in text_types + binary_types or Path(name).suffix.lower() != suffix:
+            raise ValueError('Unsupported type or misleading extension')
+        if source.is_symlink() or not source.is_file() or source.stat().st_size > 25 * 1024 * 1024:
+            raise ValueError('File inaccessible, linked, or exceeds the 25 MiB V3.5 limit')
         data = source.read_bytes()
-        content = data.decode('utf-8')
-        if '\x00' in content:
-            raise ValueError('Binary content cannot use text synchronization')
+        if len(data) > 25 * 1024 * 1024:
+            raise ValueError('File exceeds the 25 MiB V3.5 limit')
         target = f'{base}/artifacts/{name}'
-        files.append({'path': target, 'content': content})
+        if suffix in text_types:
+            content = data.decode('utf-8')
+            if '\x00' in content:
+                raise ValueError('Binary content cannot use text synchronization')
+            files.append({'path': target, 'content': content})
+        else:
+            binary_files.append({'path': target, 'source': str(source.resolve()), 'bytes': len(data),
+                                 'sha256': hashlib.sha256(data).hexdigest()})
         artifacts.append({'path': f'artifacts/{name}', 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
     links = []
     for item in draft.get('links', []):
@@ -90,15 +101,16 @@ def prepare(draft, previous=None):
     record += section('主要工作', draft['work'], '未提供')
     record += section('讨论过程与方案取舍', draft.get('discussion', []), '无额外讨论信息')
     record += section('阶段结论', draft.get('conclusions', []), '未形成正式结论；仅保存探索过程，不作为正式决定。')
-    record += section('关联成果', [f"{a['path']}；{a['bytes']} 字节；SHA-256 {a['sha256']}" for a in artifacts], '无拟上传文本成果')
+    record += section('关联成果', [f"{a['path']}；{a['bytes']} 字节；SHA-256 {a['sha256']}" for a in artifacts], '无拟上传成果')
     record += section('外部成果链接', [f"{x['name']}：{x['url']}（{'已核对访问' if x['verified'] else '未验证访问'}）" for x in links], '无')
     record += section('待解决问题', draft.get('open_questions', []), '未提供其他未决问题')
     files.insert(0, {'path': f'{base}/record.md', 'content': record})
     secret_pattern = re.compile(r'(?:github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|Bearer\s+[A-Za-z0-9_.-]{20,})')
     if any(secret_pattern.search(item['content']) for item in files):
         raise ValueError('Potential credential found in proposed content; exclude it before preview')
-    digest = hashlib.sha256(json.dumps(files, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')).hexdigest()
-    return {'request_key': draft['request_key'], 'submission_id': submission_id, 'created_at': created_at, 'state': 'awaiting_confirmation', 'request_fingerprint': digest, 'record_content': record, 'files': files, 'artifact_manifest': artifacts, 'links': links}
+    fingerprint_input = files if not binary_files else {'files': files, 'binary_files': [{k: v for k, v in item.items() if k != 'source'} for item in binary_files]}
+    digest = hashlib.sha256(json.dumps(fingerprint_input, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')).hexdigest()
+    return {'request_key': draft['request_key'], 'submission_id': submission_id, 'created_at': created_at, 'state': 'awaiting_confirmation', 'request_fingerprint': digest, 'record_content': record, 'files': files, 'artifact_manifest': artifacts, 'links': links, 'binary_files': binary_files}
 
 
 def main():
@@ -112,7 +124,7 @@ def main():
     packet = prepare(draft, previous)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(packet, ensure_ascii=False, indent=2), encoding='utf-8')
-    print(json.dumps({'submission_id': packet['submission_id'], 'state': packet['state'], 'files': [x['path'] for x in packet['files']]}, ensure_ascii=False))
+    print(json.dumps({'submission_id': packet['submission_id'], 'state': packet['state'], 'files': [x['path'] for x in packet['files'] + packet['binary_files']]}, ensure_ascii=False))
 
 
 if __name__ == '__main__':
