@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "case": "10-profile-fix-intro",
+      "exitCode": 0,
+      "skillReadSucceeded": true,
+      "profileReaderSucceeded": true,
+      "confirmedMemberRecovered": "Cyan",
+      "repositoryRecovered": "Yeahouse/teambrain-test",
+      "branch": "main",
+      "mcpReadCalls": 14,
+      "recordBodiesActuallyRead": true,
+      "promptContainsMemberOrRepository": false,
+      "remoteMutationCalls": 0,
+      "verdict": "passed"
+    },
+    {
+      "case": "11-profile-fix-new-session",
+      "exitCode": 0,
+      "skillReadSucceeded": true,
+      "profileReaderSucceeded": true,
+      "confirmedMemberRecovered": "Cyan",
+      "repositoryRecovered": "Yeahouse/teambrain-test",
+      "branch": "main",
+      "mcpReadCalls": 14,
+      "recordBodiesActuallyRead": true,
+      "promptContainsMemberOrRepository": false,
+      "remoteMutationCalls": 0,
+      "verdict": "passed"
+    }
+  ],
+  "profileBytesUnchangedAcrossSessions": true,
+  "profileSha256": "ac620ebd23856cd1557d12db52c1f0d189f45d3e221551b9743476a198f72331",
+  "unitTests": {
+    "passed": 17,
+    "method": "Python unittest; 7 profile tests + 10 existing Work Sync tests; controlled exceptions are unit tests, not remote errors"
+  }
+}

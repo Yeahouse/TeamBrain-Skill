@@ -1,0 +1,24 @@
+{
+  "startedAt": "2026-10-21T19:35:19.474817+08:00",
+  "method": "Normal user config and sandbox; temporary process-level tool/server controls; no persistent changes",
+  "cases": [
+    {
+      "case": "10-profile-fix-intro",
+      "mode": "normal",
+      "prompt": "TeamBrain，请介绍你的功能，并告诉我已连接项目的当前进展。\n\n本轮只读验收：从本机个人配置恢复已确认的项目和署名，不修改配置或权限，不创建仓库、不上传。只允许访问当前开发已授权的那个测试项目，不读其他仓库或旧测试报告。请真实使用安装的Skill和当前MCP，遇错如实报告，不要求重新填写已经保存的信息。",
+      "exitCode": 0,
+      "seconds": 75.8,
+      "mcpCalls": 14,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "11-profile-fix-new-session",
+      "mode": "normal",
+      "prompt": "TeamBrain，恢复我的个人项目配置，查看当前项目进展和已提交成果，注明本次记录将使用的成员署名。\n\n本轮只读验收：从本机个人配置恢复已确认的项目和署名，不修改配置或权限，不创建仓库、不上传。只允许访问当前开发已授权的那个测试项目，不读其他仓库或旧测试报告。请真实使用安装的Skill和当前MCP，遇错如实报告，不要求重新填写已经保存的信息。",
+      "exitCode": 0,
+      "seconds": 77.0,
+      "mcpCalls": 14,
+      "runtimeControlsOnly": true
+    }
+  ]
+}

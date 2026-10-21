@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-10-21T19:24:35.360584+08:00",
+  "method": "Normal user config and sandbox; temporary process-level tool/server controls; no persistent changes",
+  "cases": [
+    {
+      "case": "09-profile-reuse",
+      "mode": "normal",
+      "prompt": "TeamBrain，请介绍你的功能。请复用真实已确认的本机个人配置，不要重复初始化或询问已有仓库和署名；实际读取项目。本轮不得写入远端或修改个人配置。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 79.1,
+      "mcpCalls": 3,
+      "runtimeControlsOnly": true
+    }
+  ]
+}

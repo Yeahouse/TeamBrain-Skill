@@ -1,0 +1,20 @@
+Reading additional input from stdin...
+2026-10-21T11:23:27.587407Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:27.590504Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:27.598169Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:27.598340Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:27.603108Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:27.623933Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:23:27.623957Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:23:27.630074Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-10-21T11:23:27.735022Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:27.740755Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:29.201733Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:30.370002Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:23:30.370021Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:23:30.872596Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:33.905209Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:39.732617Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:43.813587Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:23:54.449377Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:17.213604Z  WARN codex_analytics::client: failed to send events request: error sending request for url (https://chatgpt.com/backend-api/codex/analytics-events/events)

@@ -1,0 +1,858 @@
+{
+  "scope": "Actual completed Codex CLI events; only permitted test repository reads; no MCP mutation calls",
+  "cases": [
+    {
+      "case": "01-intro",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "ref": "refs/heads/main",
+            "path": "",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "ref": "refs/heads/main",
+            "path": "README.md"
+          },
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "case": "02-configured",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "ref": "refs/heads/main",
+            "path": "",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "ref": "refs/heads/main",
+            "path": "README.md"
+          },
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "case": "03-unbound",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "/",
+            "fields": [
+              "name",
+              "type",
+              "path"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "README.md"
+          },
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "case": "04-readonly",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "ref": "refs/heads/main",
+            "path": ""
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "path": "README.md"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "path": "records"
+          },
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "case": "05-no-project-md",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "",
+            "ref": "refs/heads/main",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "README.md",
+            "ref": "refs/heads/main"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records",
+            "ref": "refs/heads/main",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "case": "06-auth-failure",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github",
+          "tool": "list_mcp_resource_templates",
+          "arguments": {
+            "server": "github"
+          },
+          "status": "failed"
+        },
+        {
+          "server": "github",
+          "tool": "list_mcp_resources",
+          "arguments": {
+            "server": "github"
+          },
+          "status": "failed"
+        }
+      ]
+    },
+    {
+      "case": "07-invalid-address",
+      "skillReadSucceeded": true,
+      "calls": []
+    },
+    {
+      "case": "08-no-github-connection",
+      "skillReadSucceeded": true,
+      "calls": []
+    },
+    {
+      "case": "09-profile-reuse",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "README.md",
+            "ref": "refs/heads/main"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "type",
+              "path"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "type",
+              "path"
+            ]
+          },
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "case": "10-profile-fix-intro",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "README.md",
+            "ref": "refs/heads/main"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/r81-20261021-001",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/work-sync-20261021-a-7f942c",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/work-sync-20261021-a-7f942c/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/r81-20261021-001/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61/artifacts",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881/artifacts",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/r81-20261021-001/artifacts",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "case": "11-profile-fix-new-session",
+      "skillReadSucceeded": true,
+      "calls": [
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "README.md",
+            "ref": "refs/heads/main"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/work-sync-20261021-a-7f942c",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/r81-20261021-001",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/r81-20261021-001/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/work-sync-20261021-a-7f942c/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881/record.md",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842"
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-fde7b652b4cb49789bcab59f0ccd1881/artifacts",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type",
+              "size"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/ws-729b22e4048f4b4b8580ebf7f9f25e61/artifacts",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type",
+              "size"
+            ]
+          },
+          "status": "completed"
+        },
+        {
+          "server": "github_test_write",
+          "tool": "get_file_contents",
+          "arguments": {
+            "owner": "Yeahouse",
+            "repo": "teambrain-test",
+            "path": "records/r81-20261021-001/artifacts",
+            "sha": "d3133bda9a8b37a50cb6637e401bf565a48f1842",
+            "fields": [
+              "name",
+              "path",
+              "type",
+              "size"
+            ]
+          },
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "01-intro-answer.md",
+      "sha256": "5a8691c4bc7f1cd6f710f5cb9e5daf062b218d450ee6ee776c3e54521e9a94a0"
+    },
+    {
+      "path": "01-intro-events.jsonl",
+      "sha256": "0b0c75e926cc95d7ec900540710ea9d4478a38befbf1eb7e12b47cb096d0da40"
+    },
+    {
+      "path": "01-intro-stderr.txt",
+      "sha256": "c490bc4d8e7a3645101258e2787128e82097e19f0dc7762c481755cb5bf95cfe"
+    },
+    {
+      "path": "02-configured-answer.md",
+      "sha256": "a2e892c5fd1a2d2c133758386ad0b1a8192afd86de59a21fab729ef5ab3ee0cb"
+    },
+    {
+      "path": "02-configured-events.jsonl",
+      "sha256": "92014e96a872ce033ae8e30176229907df2555b53d4d283b1dd609aaf812ddc5"
+    },
+    {
+      "path": "02-configured-stderr.txt",
+      "sha256": "371417c18ef6bbb8b887f7929941371e3a0ac6a106198e275683df44917ce7bd"
+    },
+    {
+      "path": "03-unbound-answer.md",
+      "sha256": "f517484b083442c42cd6e53da7a79ea36ab631408f0bd345980f2167ab042648"
+    },
+    {
+      "path": "03-unbound-events.jsonl",
+      "sha256": "c45e738dd1ed54cc03d1551c5da3f9c46c5ed08fc07306772d5ca471c0f83031"
+    },
+    {
+      "path": "03-unbound-stderr.txt",
+      "sha256": "13a0f620dadf9e47ee9f752a88592f81da981906a082890d6afce5d6fbd87e70"
+    },
+    {
+      "path": "04-readonly-answer.md",
+      "sha256": "90dd0574bf7c232b1c4b45dde7f44bd39fc18639dbd06a59cc88d7f9228252b4"
+    },
+    {
+      "path": "04-readonly-events.jsonl",
+      "sha256": "93a24396907ddbe0b2546fb8503466823932c22a20cf2b7cc8ac09c2eb5fc4ca"
+    },
+    {
+      "path": "04-readonly-stderr.txt",
+      "sha256": "80a605ef2859deef56f16982e83ed5a827ec28115a8765f297b35d8dde50fd7e"
+    },
+    {
+      "path": "05-no-project-md-answer.md",
+      "sha256": "471aa2e96ab163f8b327c319cef1e521ce91789ec001b1b3508e62c185b00952"
+    },
+    {
+      "path": "05-no-project-md-events.jsonl",
+      "sha256": "53c8debc3f5068be356486b89656b75975d7b3c23e0ad30ec656a2c4bf60f388"
+    },
+    {
+      "path": "05-no-project-md-stderr.txt",
+      "sha256": "b8b12e2dfc8b9d869505e6450149e7e724caca32dcc6792bd01afd820eca8d7a"
+    },
+    {
+      "path": "06-auth-failure-answer.md",
+      "sha256": "ad642b6ed62af9c401db79d6acd2776b544d1b45cff1a6716abbbd5bd1e8b314"
+    },
+    {
+      "path": "06-auth-failure-events.jsonl",
+      "sha256": "a81818d3d07207917bec134a759815f2dc7b468be05bf43e8a1c4b571802b9e9"
+    },
+    {
+      "path": "06-auth-failure-stderr.txt",
+      "sha256": "c01e23432dd5eadc5c8bf609ce7a839c6bd604d5ad902e221f2fa496e6456b67"
+    },
+    {
+      "path": "07-invalid-address-answer.md",
+      "sha256": "8d481f636b92f8147453c0be8539d6d7a43b7f91cc61253a25d151bfcc4d7dd0"
+    },
+    {
+      "path": "07-invalid-address-events.jsonl",
+      "sha256": "8a402dd0d9d537e090195c9a75b7fd92c5d4f37bd4e389a7c4b24dceb5779968"
+    },
+    {
+      "path": "07-invalid-address-stderr.txt",
+      "sha256": "eb8dd2181bb3bff645171a9ee9d7484080f1509e17db3fb1ac8831fadf758e1f"
+    },
+    {
+      "path": "08-no-github-connection-answer.md",
+      "sha256": "bd64ccea3bb656453e088dc328e9ad61c9ded1d91b35e0faab0b310161e75b38"
+    },
+    {
+      "path": "08-no-github-connection-events.jsonl",
+      "sha256": "61d6e681f37ebdf52b3f505b3eae229428611ec385a503c735f25ff968cd83be"
+    },
+    {
+      "path": "08-no-github-connection-stderr.txt",
+      "sha256": "4f00055b04ac049e70e58811d84c5ef44ffa53783fe3c283ac34b9b273a37002"
+    },
+    {
+      "path": "09-profile-reuse-answer.md",
+      "sha256": "6b63668d3f378060c84728d9f059b423ef55504ecbe7a18f64782fed87baff2a"
+    },
+    {
+      "path": "09-profile-reuse-events.jsonl",
+      "sha256": "9d2ffe4509f76e68f5420a28e70d8cc863640d6e8b1d0a5710766977df1bd191"
+    },
+    {
+      "path": "09-profile-reuse-stderr.txt",
+      "sha256": "07d14210241f5ea83ef4b15ac0102b42289384a9265b31059d2d941157b4f97d"
+    },
+    {
+      "path": "10-profile-fix-intro-answer.md",
+      "sha256": "c7f2843259f99961906b26d3b894b1ef6c954e214705e0623e826ac798f1b164"
+    },
+    {
+      "path": "10-profile-fix-intro-events.jsonl",
+      "sha256": "01436dce46a82374223cfc0fc8709c1018ce8d55a43bae6ad531df762569bfe7"
+    },
+    {
+      "path": "10-profile-fix-intro-stderr.txt",
+      "sha256": "7797964fdba30a88aa751aca712288d175f7b3b443c365f3cf29a65f759feb79"
+    },
+    {
+      "path": "11-profile-fix-new-session-answer.md",
+      "sha256": "00cc4a2020e0e4e83f219b9ab5c4bdb4effe9c76143332590606cdb2252a85a9"
+    },
+    {
+      "path": "11-profile-fix-new-session-events.jsonl",
+      "sha256": "46d6ae2d868c7ead4f0bcdb67ee8fa48d22781d2b059ae8f6580b5cd339fc41d"
+    },
+    {
+      "path": "11-profile-fix-new-session-stderr.txt",
+      "sha256": "50b51224385dcad9543c14c7503eb28eaf7b9b7cf069778e9454b2cdded4d90d"
+    },
+    {
+      "path": "change-review.json",
+      "sha256": "b71de508c74ec1ccc41fd39cb0f4e8fff2c907a30d71a81d0dda0b8649f978f8"
+    },
+    {
+      "path": "change-review.md",
+      "sha256": "9e5b94c7ce0c87054016ad9a042b72df815010782e774a3ef23a55b89ccfab19"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "4c041251a7dd2611095b07604f33f601dc11ce03d08f63bc76bd007d8505d044"
+    },
+    {
+      "path": "plan.md",
+      "sha256": "a08826ae3351608f9a5c1486aeeab8e2c44cfddc65fc154d6a82f1cc83cd943f"
+    },
+    {
+      "path": "profile-fix-diagnosis.json",
+      "sha256": "3e3b46902e08f3d733e52bb30d858a4596bd870067d53df8be8339238e49752a"
+    },
+    {
+      "path": "profile-fix-manifest.json",
+      "sha256": "3a1e9a4cb138083c7e0d14447212db047fe769edbc73d2fb1b27cf755e7a813c"
+    },
+    {
+      "path": "profile-fix-validation.json",
+      "sha256": "76bcab88c5f3401caa02916f3b83cf7ba9ade9f12e41570b5b2ef46c5cab3a47"
+    },
+    {
+      "path": "profile-fix-verification.json",
+      "sha256": "77e3cb9cf4fa33d1df0dfdb88f6f6dd2ee3bc9b02b2e6ad99c935014121d23bb"
+    },
+    {
+      "path": "profile-reuse-manifest.json",
+      "sha256": "156867c00318fd70d3eff7d03fcc37796625c9d1cc73f12912125aaa96a0dd36"
+    },
+    {
+      "path": "report.md",
+      "sha256": "3b76f8df1808f1d4ed5a204cd5803be423264bcb0f1df747f9e0a9058d65cd1d"
+    }
+  ]
+}

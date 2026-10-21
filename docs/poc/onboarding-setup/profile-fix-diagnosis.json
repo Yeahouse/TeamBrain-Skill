@@ -1,0 +1,38 @@
+{
+  "method": "Real Windows ACL and codex doctor inspection; user names, SIDs and absolute private paths omitted",
+  "cliVersion": "codex-cli 0.163.0-alpha.10.2",
+  "logicalProfilePath": "~/.config/teambrain/profile.json",
+  "fileExists": true,
+  "size": 336,
+  "sha256": "ac620ebd23856cd1557d12db52c1f0d189f45d3e221551b9743476a198f72331",
+  "validJson": true,
+  "schemaVersion": 1,
+  "currentUserReadSucceeded": true,
+  "originalSandboxGroupFileGrant": false,
+  "currentSandboxGroupFileGrant": [
+    {
+      "rights": "Read, Synchronize",
+      "inheritance": "None",
+      "propagation": "None",
+      "inherited": false
+    }
+  ],
+  "parentAclsChanged": false,
+  "globalConfigChanged": false,
+  "profileContentRewritten": false,
+  "sandbox": {
+    "approval policy": "OnRequest",
+    "codex-linux-sandbox helper": "none",
+    "denied-read glob rules": "0",
+    "denied-read restrictions": "false",
+    "denied-read rules": "0",
+    "filesystem sandbox": "restricted",
+    "glob scan max depth": "unbounded",
+    "managed filesystem source": "none",
+    "network sandbox": "restricted",
+    "sandbox backend": "elevated",
+    "sandbox provisioning": "complete"
+  },
+  "preFixActualError": "Access to profile.json is denied; Test-Path continued with false and legacy else printed Profile not found (09 event evidence)",
+  "postFixSandboxRead": "Actual current sandbox Get-Content succeeded; independent Codex acceptance evidence recorded separately"
+}

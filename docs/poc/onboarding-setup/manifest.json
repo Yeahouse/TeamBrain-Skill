@@ -1,0 +1,78 @@
+{
+  "startedAt": "2026-10-21T19:16:20.745367+08:00",
+  "method": "Normal user config and sandbox; temporary process-level tool/server controls; no persistent changes",
+  "cases": [
+    {
+      "case": "01-intro",
+      "mode": "normal",
+      "prompt": "TeamBrain，请介绍你的功能。本次开发上下文已确认项目 Yeahouse/teambrain-test/main；我还没有确认正式成员署名。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 87.9,
+      "mcpCalls": 2,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "02-configured",
+      "mode": "normal",
+      "prompt": "TeamBrain，检查我是否可以直接使用。当前会话已确认项目 Yeahouse/teambrain-test/main，成员显示名“引导测试成员”（虚构），仅本次会话使用，不持久化。请复用这些已确认信息，不要再要求初始化或重复问仓库与成员名。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 63.2,
+      "mcpCalls": 2,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "03-unbound",
+      "mode": "normal",
+      "prompt": "TeamBrain，请介绍你的功能。我是新成员，本次还没有选择任何共享仓库，不要沿用Skill里的开发测试示例，也不要把其当作我确认的绑定。请给我下一步引导，不猜测仓库。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 62.7,
+      "mcpCalls": 2,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "04-readonly",
+      "mode": "readonly",
+      "prompt": "TeamBrain，这次只有只读连接。我已确认项目 Yeahouse/teambrain-test/main，成员名“只读测试成员”（虚构）。请检查当前连接后介绍当前项目，并说明查询与同步分别能否使用，不做试写。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 59.2,
+      "mcpCalls": 3,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "05-no-project-md",
+      "mode": "normal",
+      "prompt": "TeamBrain，帮我检查项目配置。目标已确认 Yeahouse/teambrain-test/main；请实际检查project.md或已有资料，缺少正式项目说明时不要编造目标、成员名单和阶段规划，给我可以直接使用的指令。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 60.7,
+      "mcpCalls": 3,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "06-auth-failure",
+      "mode": "auth_failure",
+      "prompt": "TeamBrain，帮我检查项目连接。目标已确认 Yeahouse/teambrain-test/main。本次只启用原 github 连接，测试连接未启用；请以当前实际可用工具及诊断为准区分认证、项目绑定和成员身份，不自动修复或变更授权。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 51.1,
+      "mcpCalls": 2,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "07-invalid-address",
+      "mode": "normal",
+      "prompt": "TeamBrain，连接我的项目，地址是 https://github.com/Yeahouse/ 。这是我本次提供的唯一地址，请先检查格式，不能猜测repo名称，也不要沿用开发示例。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 41.8,
+      "mcpCalls": 0,
+      "runtimeControlsOnly": true
+    },
+    {
+      "case": "08-no-github-connection",
+      "mode": "disconnected",
+      "prompt": "TeamBrain，请介绍你的功能并检查是否已连接GitHub。本次没有启用任何GitHub连接，不要自动配置或申请权限；项目地址已指定为Yeahouse/teambrain-test，但这不代表连接已成功。\n\n本次为 Onboarding 正常Codex会话验收：实际使用 TeamBrain Skill，按当前真正可用工具判断各项独立状态。只允许读取 Yeahouse/teambrain-test，不能访问其他仓库；不得创建仓库、修改权限、试写或保存/修改任何成员配置。不把测试署名保存为当前真实用户身份。不得以本地旧测试报告替代当前工具状态和仓库读取。",
+      "exitCode": 0,
+      "seconds": 53.1,
+      "mcpCalls": 0,
+      "runtimeControlsOnly": true
+    }
+  ]
+}

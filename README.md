@@ -3,7 +3,7 @@
 源码仓库：https://github.com/Yeahouse/TeamBrain-Skill
 独立测试数据仓库：https://github.com/Yeahouse/teambrain-test
 
-当前状态：R8.1 首次 MCP 读写闭环已实测通过；第一个核心功能“项目进展与成员工作查询”已通过五条正常会话实测（当前单记录虚构数据集）。本机 Skill 目录链接直接引用本工作区，源码修改无需复制同步。
+当前状态：查询与 Work Sync 基础功能已完成真实MCP验收，第三个入口 Onboarding & Setup 已完成基础验收及跨会话个人配置复用修复。本机 Skill 目录链接直接引用本工作区，源码修改无需复制同步。
 
 ## 文件导航
 
@@ -44,3 +44,14 @@ AI 仅提炼当前可见对话，整理工作、方案取舍、正式结论或�
 流程：references/work-sync.md；本地草稿辅助：references/work-sync-draft.md、scripts/prepare-work-sync.py。辅助脚本只产生待确认包，不连接 GitHub。当前唯一测试目标为 Yeahouse/teambrain-test，沿用既有 R7 结构。
 
 重复请求保留ID并查远端，内容一致则不重复写；冲突或结果未知先核对，不自动覆盖或盲目重试。验收状态见 docs/poc/work-sync/，预览通过不能等同完整同步通过。
+
+
+## 首次使用与项目连接
+
+直接说：“TeamBrain，请介绍你的功能。”
+
+TeamBrain会介绍功能引导、项目查询、阶段工作同步，检查当前连接和项目资料，只询问缺少的仓库或成员信息。项目与成员已确认时可直接使用；只读连接仍可查询，不能据此默认可以上传。缺少project.md时根据现有README/记录说明能确认什么，不自动初始化仓库。
+
+当前成员的工作署名由本人确认，不能从仓库owner、GitHub账号或虚构测试作者猜测。每位成员使用自己的GitHub授权与本地配置；不共享令牌。GitHub连接、项目绑定和成员身份分别管理；凭据不存入Skill或项目仓库。
+
+可选本地个人配置及检查流程见 references/setup-profile.md 与 references/onboarding-setup.md。任何新建仓库、权限变更或真实上传都另行确认。代码不包含独立后端或前端。实际验收范围与限制见 docs/poc/onboarding-setup/report.md。

@@ -1,0 +1,28 @@
+Reading additional input from stdin...
+2026-10-21T11:24:35.516829Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:35.520704Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:35.527332Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:35.528720Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:35.531946Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:35.604058Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:24:35.604079Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:24:35.713331Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-10-21T11:24:35.929618Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:35.935044Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:37.527990Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:38.871550Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:24:38.871581Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-21T11:24:40.661851Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:40.915851Z  WARN codex_exec_server::client::http_client::route_aware_http_client: http/request send failed http_method="POST" error_is_timeout=false error_is_connect=true error=error sending request
+2026-10-21T11:24:40.915906Z  WARN codex_rmcp_client::http_client_adapter: streamable HTTP post_message failed endpoint_scheme="https" endpoint_host="api.githubcopilot.com" endpoint_path="/mcp/x/repos" endpoint_has_query=false mcp_method="initialize" mcp_request_id="0" has_session_id=false has_authorization_header=true
+2026-10-21T11:24:40.916190Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest("http/request failed: error sending request for url (https://api.githubcopilot.com/mcp/x/repos)")))
+2026-10-21T11:24:40.916239Z  WARN codex_rmcp_client::rmcp_client::streamable_http_retry: streamable HTTP MCP initialize failed with a retryable error; retrying attempt=1 max_attempts=3 delay_ms=250 error=handshaking with MCP server failed: Send message error Transport [codex_rmcp_client::event_notification_transport::EventNotificationTransport<rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Client error: HTTP request failed: http/request failed: error sending request for url (https://api.githubcopilot.com/mcp/x/repos), when send initialize request
+2026-10-21T11:24:44.550803Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:49.322301Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:24:53.955343Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:25:03.904437Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:25:12.240937Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:25:16.816609Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:25:20.467440Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:25:24.527590Z  WARN codex_features: unknown feature key in config: rmcp_client
+2026-10-21T11:25:32.383974Z  WARN codex_features: unknown feature key in config: rmcp_client

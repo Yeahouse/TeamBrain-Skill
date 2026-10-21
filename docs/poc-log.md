@@ -40,3 +40,12 @@
 ## 2026-10-21：Work Sync 批准后的三条真实同步通过
 
 正常结论、方案修订、探索记录共5文件通过MCP提交并逐条固定Commit回读核验，分别为954b9fa8c2940287852ac09050be549c19d4df56、923a6d96a70067460c96862627aa9842f4fe9295、d3133bda9a8b37a50cb6637e401bf565a48f1842。两份文本附件均79字节且SHA-256一致。每条只写一次，未覆盖其他文件、未故障注入。详见poc/work-sync/write-results.md。Work Sync开发成果仍仅本地，未提交推送。
+
+## 2026-10-21：Work Sync版本保存与Onboarding基础验收
+
+Work Sync已按批准的42文件提交推送cc021c1a63af54a961f3689a3336bbdb8332fe96并确认远端一致。首次使用入口已本地开发；9个正常Codex会话均读取Skill，17次MCP调用，无远端写入。8项引导/状态场景行为符合预期；第9项个人配置跨会话复用被用户目录Access denied阻塞，未判成功。原github认证问题仍存在。详见poc/onboarding-setup/report.md；本轮新增开发未提交推送。
+
+
+## 2026-10-21：Onboarding个人配置复用修复通过
+
+确认个人配置Access denied来自Windows elevated沙箱身份缺少该文件读取权限；仅授予现有profile.json单文件只读，无父目录或全局策略变更。新增安全字段读取器，区分拒绝访问与不存在。两个独立正常CLI会话自动恢复已保存署名及仓库，通过MCP读取阶段记录，无重复填写、无远端写入，配置字节不变。17项单元/回归测试通过；09失败证据保留，10/11为修复后实测。详见poc/onboarding-setup/report.md及profile-fix-verification.json。本轮开发成果尚未提交推送，等待用户审核。
