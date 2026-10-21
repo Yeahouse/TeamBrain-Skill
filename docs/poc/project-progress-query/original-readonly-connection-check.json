@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-21T18:06:24.137112+08:00",
+  "transport": "Codex app-server to official GitHub Remote MCP",
+  "tokenSource": "User environment; value omitted",
+  "requests": [],
+  "status": {
+    "id": 3,
+    "result": {
+      "data": [
+        {
+          "name": "github",
+          "runtimeStatus": "authenticationRequired",
+          "pluginId": null,
+          "httpOrigin": "https://api.githubcopilot.com",
+          "serverInfo": null,
+          "serverCapabilities": null,
+          "tools": {},
+          "toolsError": "MCP startup failed: handshaking with MCP server failed: Send message error Transport [codex_rmcp_client::event_notification_transport::EventNotificationTransport<rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth required, when send initialize request: Send message error Transport [codex_rmcp_client::event_notification_transport::EventNotificationTransport<rmcp::transport::worker::WorkerTransport<rmcp::transport::streamable_http_client::StreamableHttpClientWorker<codex_rmcp_client::http_client_adapter::StreamableHttpClientAdapter>>>] error: Auth required, when send initialize request",
+          "resources": [],
+          "resourceTemplates": [],
+          "authStatus": "bearerToken"
+        }
+      ],
+      "nextCursor": null
+    }
+  },
+  "error": "No GitHub MCP tools available"
+}

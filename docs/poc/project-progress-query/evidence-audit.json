@@ -1,0 +1,86 @@
+[
+  {
+    "case": 1,
+    "skillAndReferenceReadObserved": true,
+    "mcpCalls": 6,
+    "mcpSuccessful": 5,
+    "mcpFailed": 1,
+    "onlyAuthorizedReadCalls": true,
+    "remoteRecordReadObserved": true,
+    "calledPaths": [
+      "README.md",
+      "",
+      "project.md",
+      "records",
+      "records/r81-20261021-001/record.md",
+      "records/r81-20261021-001/artifacts"
+    ]
+  },
+  {
+    "case": 2,
+    "skillAndReferenceReadObserved": true,
+    "mcpCalls": 6,
+    "mcpSuccessful": 6,
+    "mcpFailed": 0,
+    "onlyAuthorizedReadCalls": true,
+    "remoteRecordReadObserved": true,
+    "calledPaths": [
+      "README.md",
+      "",
+      "records",
+      "records/r81-20261021-001",
+      "records/r81-20261021-001/record.md",
+      "records/r81-20261021-001/artifacts"
+    ]
+  },
+  {
+    "case": 3,
+    "skillAndReferenceReadObserved": true,
+    "mcpCalls": 5,
+    "mcpSuccessful": 5,
+    "mcpFailed": 0,
+    "onlyAuthorizedReadCalls": true,
+    "remoteRecordReadObserved": true,
+    "calledPaths": [
+      "README.md",
+      "",
+      "records",
+      "records/r81-20261021-001/record.md",
+      "records/r81-20261021-001/artifacts"
+    ]
+  },
+  {
+    "case": 4,
+    "skillAndReferenceReadObserved": true,
+    "mcpCalls": 6,
+    "mcpSuccessful": 6,
+    "mcpFailed": 0,
+    "onlyAuthorizedReadCalls": true,
+    "remoteRecordReadObserved": true,
+    "calledPaths": [
+      "README.md",
+      "",
+      "records",
+      "records/r81-20261021-001/record.md",
+      "records/r81-20261021-001",
+      "records/r81-20261021-001/artifacts"
+    ]
+  },
+  {
+    "case": 5,
+    "skillAndReferenceReadObserved": true,
+    "mcpCalls": 6,
+    "mcpSuccessful": 6,
+    "mcpFailed": 0,
+    "onlyAuthorizedReadCalls": true,
+    "remoteRecordReadObserved": true,
+    "calledPaths": [
+      "README.md",
+      "",
+      "records",
+      "records/r81-20261021-001",
+      "records/r81-20261021-001/record.md",
+      "records/r81-20261021-001/artifacts"
+    ]
+  }
+]
